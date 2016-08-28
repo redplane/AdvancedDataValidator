@@ -43,13 +43,13 @@
   <ItemGroup>
     <Compile Include="Enumerations\Comparision.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Validators\DictionaryLengthAttribute.cs" />
-    <Compile Include="Validators\UnixCurrentTimeCompareAttribute.cs" />
-    <Compile Include="Validators\UnixTimeCompareAttribute.cs" />
-    <Compile Include="Validators\InEnumerationsArray.cs" />
-    <Compile Include="Validators\InNumericArrayAttribute.cs" />
-    <Compile Include="Validators\NumericCompareAttribute.cs" />
-    <Compile Include="Validators\NumericPropertyCompareAttribute.cs" />
+    <Compile Include="ApiValidators\DictionaryLengthAttribute.cs" />
+    <Compile Include="ApiValidators\UnixCurrentTimeCompareAttribute.cs" />
+    <Compile Include="ApiValidators\UnixTimeCompareAttribute.cs" />
+    <Compile Include="ApiValidators\InEnumerationsArray.cs" />
+    <Compile Include="ApiValidators\InNumericArrayAttribute.cs" />
+    <Compile Include="ApiValidators\NumericCompareAttribute.cs" />
+    <Compile Include="ApiValidators\NumericPropertyCompareAttribute.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
