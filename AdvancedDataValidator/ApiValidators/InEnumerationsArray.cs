@@ -27,6 +27,7 @@ namespace AdvancedDataValidator.ApiValidators
         /// <param name="milestones"></param>
         public InEnumerationsArray(object[] milestones)
         {
+            milestones = milestones.Where(x => x != null);
             _milesStone = Array.ConvertAll(milestones, value => (int) value);
         }
 
