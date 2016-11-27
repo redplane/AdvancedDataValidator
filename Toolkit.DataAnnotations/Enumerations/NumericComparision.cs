@@ -1,4 +1,4 @@
-﻿namespace Toolkit.Validators.Enumerations
+﻿namespace Toolkit.DataAnnotations.Enumerations
 {
     public enum NumericComparision
     {

@@ -5,7 +5,7 @@ using System.Globalization;
 using System.Linq;
 using System.Web.Mvc;
 
-namespace Toolkit.Validators.Attributes
+namespace Toolkit.DataAnnotations.Attributes
 {
     /// <summary>
     ///     This attribute is for checking whether a number is in an array or not.

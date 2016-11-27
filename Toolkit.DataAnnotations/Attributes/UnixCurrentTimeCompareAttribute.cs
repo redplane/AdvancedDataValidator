@@ -1,9 +1,9 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.Globalization;
-using Toolkit.Validators.Enumerations;
+using Toolkit.DataAnnotations.Enumerations;
 
-namespace Toolkit.Validators.Attributes
+namespace Toolkit.DataAnnotations.Attributes
 {
     public class UnixCurrentTimeCompareAttribute : ValidationAttribute
     {
@@ -13,7 +13,7 @@ namespace Toolkit.Validators.Attributes
         ///     Initialize comparision attribute.
         /// </summary>
         /// <param name="comparision"></param>
-        public UnixCurrentTimeCompareAttribute(Comparision comparision)
+        public UnixCurrentTimeCompareAttribute(NumericComparision comparision)
         {
             _comparision = comparision;
             _originalUnixTime = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
@@ -26,7 +26,7 @@ namespace Toolkit.Validators.Attributes
         /// <summary>
         ///     Comparision mode.
         /// </summary>
-        private readonly Comparision _comparision;
+        private readonly NumericComparision _comparision;
 
         /// <summary>
         ///     Time should be start from 1970.
@@ -68,27 +68,27 @@ namespace Toolkit.Validators.Attributes
 
             switch (_comparision)
             {
-                case Comparision.Lower:
+                case NumericComparision.Lower:
                     if (unixTime >= unixNow)
                         return new ValidationResult(FormatErrorMessage(validationContext.DisplayName));
                     break;
-                case Comparision.LowerEqual:
+                case NumericComparision.LowerEqual:
                     if (unixTime > unixNow)
                         return new ValidationResult(FormatErrorMessage(validationContext.DisplayName));
                     break;
-                case Comparision.Equal:
+                case NumericComparision.Equal:
                     if (!unixTime.Equals(unixTime))
                         return new ValidationResult(FormatErrorMessage(validationContext.DisplayName));
                     break;
-                case Comparision.NotEqual:
+                case NumericComparision.NotEqual:
                     if (unixTime.Equals(unixNow))
                         return new ValidationResult(FormatErrorMessage(validationContext.DisplayName));
                     break;
-                case Comparision.GreaterEqual:
+                case NumericComparision.GreaterEqual:
                     if (unixTime < unixNow)
                         return new ValidationResult(FormatErrorMessage(validationContext.DisplayName));
                     break;
-                case Comparision.Greater:
+                case NumericComparision.Greater:
                     if (unixTime <= unixNow)
                         return new ValidationResult(FormatErrorMessage(validationContext.DisplayName));
                     break;

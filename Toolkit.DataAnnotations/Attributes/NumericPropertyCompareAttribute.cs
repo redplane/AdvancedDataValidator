@@ -3,9 +3,9 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 using System.Linq;
-using Toolkit.Validators.Enumerations;
+using Toolkit.DataAnnotations.Enumerations;
 
-namespace Toolkit.Validators.Attributes
+namespace Toolkit.DataAnnotations.Attributes
 {
     public class NumericPropertyCompareAttribute : ValidationAttribute
     {
@@ -16,7 +16,7 @@ namespace Toolkit.Validators.Attributes
         /// </summary>
         /// <param name="model"></param>
         /// <param name="comparision"></param>
-        public NumericPropertyCompareAttribute(string model, Comparision comparision)
+        public NumericPropertyCompareAttribute(string model, NumericComparision comparision)
         {
             // Invalid property name.
             if (model == null)
@@ -44,7 +44,7 @@ namespace Toolkit.Validators.Attributes
         /// <summary>
         ///     Which way should 2 models be compared with each other.
         /// </summary>
-        private readonly Comparision _comparision;
+        private readonly NumericComparision _comparision;
 
         #endregion
 
@@ -99,7 +99,7 @@ namespace Toolkit.Validators.Attributes
 
             switch (_comparision)
             {
-                case Comparision.Lower:
+                case NumericComparision.Lower:
                 {
                     if (compareOrigin >= milestone)
                     {
@@ -110,7 +110,7 @@ namespace Toolkit.Validators.Attributes
                     }
                     break;
                 }
-                case Comparision.LowerEqual:
+                case NumericComparision.LowerEqual:
                 {
                     if (compareOrigin > milestone)
                     {
@@ -121,7 +121,7 @@ namespace Toolkit.Validators.Attributes
                     }
                     break;
                 }
-                case Comparision.Equal: // Value must be equal to milestone.
+                case NumericComparision.Equal: // Value must be equal to milestone.
                 {
                     if (compareOrigin != milestone)
                     {
@@ -132,7 +132,7 @@ namespace Toolkit.Validators.Attributes
                     }
                     break;
                 }
-                case Comparision.GreaterEqual: // Value must be larger than or equal to milestone.
+                case NumericComparision.GreaterEqual: // Value must be larger than or equal to milestone.
                 {
                     if (compareOrigin < milestone)
                     {
@@ -143,7 +143,7 @@ namespace Toolkit.Validators.Attributes
                     }
                     break;
                 }
-                case Comparision.Greater: // Value must be larger than milestone.
+                case NumericComparision.Greater: // Value must be larger than milestone.
                 {
                     if (compareOrigin <= milestone)
                     {
@@ -154,7 +154,7 @@ namespace Toolkit.Validators.Attributes
                     }
                     break;
                 }
-                case Comparision.NotEqual:
+                case NumericComparision.NotEqual:
                 {
                     if (compareOrigin == milestone)
                     {

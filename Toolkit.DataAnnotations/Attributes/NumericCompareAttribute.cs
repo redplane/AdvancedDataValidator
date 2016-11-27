@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 using System.Web.Mvc;
-using Toolkit.Validators.Enumerations;
+using Toolkit.DataAnnotations.Enumerations;
 
-namespace Toolkit.Validators.Attributes
+namespace Toolkit.DataAnnotations.Attributes
 {
     /// <summary>
     ///     This attribute is used for comparing 2 numeric typed attributes.
@@ -19,7 +19,7 @@ namespace Toolkit.Validators.Attributes
         /// </summary>
         /// <param name="milestone"></param>
         /// <param name="comparision"></param>
-        public NumericCompareAttribute(long milestone, Comparision comparision)
+        public NumericCompareAttribute(long milestone, NumericComparision comparision)
         {
             _milestone = Convert.ToDouble(milestone);
             _comparision = comparision;
@@ -30,7 +30,7 @@ namespace Toolkit.Validators.Attributes
         /// </summary>
         /// <param name="milestone"></param>
         /// <param name="comparision"></param>
-        public NumericCompareAttribute(int milestone, Comparision comparision)
+        public NumericCompareAttribute(int milestone, NumericComparision comparision)
         {
             _milestone = milestone;
             _comparision = comparision;
@@ -41,7 +41,7 @@ namespace Toolkit.Validators.Attributes
         /// </summary>
         /// <param name="milestone"></param>
         /// <param name="comparision"></param>
-        public NumericCompareAttribute(byte milestone, Comparision comparision)
+        public NumericCompareAttribute(byte milestone, NumericComparision comparision)
         {
             _milestone = milestone;
             _comparision = comparision;
@@ -59,7 +59,7 @@ namespace Toolkit.Validators.Attributes
         /// <summary>
         ///     Comparision mode.
         /// </summary>
-        private readonly Comparision _comparision;
+        private readonly NumericComparision _comparision;
 
         #endregion
 
@@ -82,7 +82,7 @@ namespace Toolkit.Validators.Attributes
 
             switch (_comparision)
             {
-                case Comparision.Lower:
+                case NumericComparision.Lower:
                 {
                     if (convertedValue >= _milestone)
                         return
@@ -91,7 +91,7 @@ namespace Toolkit.Validators.Attributes
 
                     break;
                 }
-                case Comparision.LowerEqual:
+                case NumericComparision.LowerEqual:
                 {
                     if (convertedValue > _milestone)
                         return
@@ -100,7 +100,7 @@ namespace Toolkit.Validators.Attributes
                     
                     break;
                 }
-                case Comparision.Equal: // Value must be equal to milestone.
+                case NumericComparision.Equal: // Value must be equal to milestone.
                 {
                     if (!Equals(convertedValue, _milestone))
                         return
@@ -108,7 +108,7 @@ namespace Toolkit.Validators.Attributes
                                 _milestone));
                     break;
                 }
-                case Comparision.GreaterEqual: // Value must be larger than or equal to milestone.
+                case NumericComparision.GreaterEqual: // Value must be larger than or equal to milestone.
                 {
                     if (convertedValue < _milestone)
                         return
@@ -116,7 +116,7 @@ namespace Toolkit.Validators.Attributes
                                 _milestone));
                     break;
                 }
-                case Comparision.Greater: // Value must be larger than milestone.
+                case NumericComparision.Greater: // Value must be larger than milestone.
                 {
                     if (convertedValue <= _milestone)
                         return

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.Globalization;
-using Toolkit.Validators.Enumerations;
+using Toolkit.DataAnnotations.Enumerations;
 
-namespace Toolkit.Validators.Attributes
+namespace Toolkit.DataAnnotations.Attributes
 {
     public class UnixTimeCompareAttribute : ValidationAttribute
     {
@@ -22,7 +22,7 @@ namespace Toolkit.Validators.Attributes
         /// <summary>
         ///     Comparision mode.
         /// </summary>
-        private readonly Comparision _comparision;
+        private readonly NumericComparision _comparision;
 
         #endregion
 
@@ -40,7 +40,7 @@ namespace Toolkit.Validators.Attributes
         /// <param name="millisecond"></param>
         /// <param name="comparision"></param>
         public UnixTimeCompareAttribute(int year, int month, int day, int hour, int minute, int second, int millisecond,
-            Comparision comparision)
+            NumericComparision comparision)
         {
             // Initialize a date from the given information.
             _date = new DateTime(year, month, day, hour, minute, second, millisecond);
@@ -59,7 +59,7 @@ namespace Toolkit.Validators.Attributes
         /// </summary>
         /// <param name="date"></param>
         /// <param name="comparision"></param>
-        public UnixTimeCompareAttribute(DateTime date, Comparision comparision)
+        public UnixTimeCompareAttribute(DateTime date, NumericComparision comparision)
         {
             try
             {
@@ -81,7 +81,7 @@ namespace Toolkit.Validators.Attributes
         /// </summary>
         /// <param name="year"></param>
         /// <param name="comparision"></param>
-        public UnixTimeCompareAttribute(int year, Comparision comparision)
+        public UnixTimeCompareAttribute(int year, NumericComparision comparision)
         {
             _date = new DateTime(year, 12, 31, 23, 59, 59, 999);
             _milliseconds = _date.ToUniversalTime()
@@ -128,27 +128,27 @@ namespace Toolkit.Validators.Attributes
 
             switch (_comparision)
             {
-                case Comparision.Lower:
+                case NumericComparision.Lower:
                     if (milliseconds >= _milliseconds.Value)
                         return new ValidationResult(FormatErrorMessage(validationContext.DisplayName));
                     break;
-                case Comparision.LowerEqual:
+                case NumericComparision.LowerEqual:
                     if (milliseconds > _milliseconds.Value)
                         return new ValidationResult(FormatErrorMessage(validationContext.DisplayName));
                     break;
-                case Comparision.Equal:
+                case NumericComparision.Equal:
                     if (milliseconds != _milliseconds)
                         return new ValidationResult(FormatErrorMessage(validationContext.DisplayName));
                     break;
-                case Comparision.NotEqual:
+                case NumericComparision.NotEqual:
                     if (milliseconds == _milliseconds)
                         return new ValidationResult(FormatErrorMessage(validationContext.DisplayName));
                     break;
-                case Comparision.GreaterEqual:
+                case NumericComparision.GreaterEqual:
                     if (milliseconds < _milliseconds.Value)
                         return new ValidationResult(FormatErrorMessage(validationContext.DisplayName));
                     break;
-                case Comparision.Greater:
+                case NumericComparision.Greater:
                     if (milliseconds <= _milliseconds.Value)
                         return new ValidationResult(FormatErrorMessage(validationContext.DisplayName));
                     break;
