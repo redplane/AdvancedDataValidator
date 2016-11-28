@@ -1,5 +1,0 @@
-F:\Programming\DotNet\Web\Fullstack\ASP.NET Framework\Toolkit\nuget\Toolkit.DataAnnotations\lib\net40\Toolkit.DataAnnotations.dll
-F:\Programming\DotNet\Web\Fullstack\ASP.NET Framework\Toolkit\nuget\Toolkit.DataAnnotations\lib\net40\Toolkit.DataAnnotations.pdb
-F:\Programming\DotNet\Web\Fullstack\ASP.NET Framework\Toolkit\Toolkit.DataAnnotations\obj\Release\Toolkit.DataAnnotations.csprojResolveAssemblyReference.cache
-F:\Programming\DotNet\Web\Fullstack\ASP.NET Framework\Toolkit\Toolkit.DataAnnotations\obj\Release\Toolkit.DataAnnotations.dll
-F:\Programming\DotNet\Web\Fullstack\ASP.NET Framework\Toolkit\Toolkit.DataAnnotations\obj\Release\Toolkit.DataAnnotations.pdb

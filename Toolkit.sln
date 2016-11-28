@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Toolkit.DataAnnotations", "Toolkit.DataAnnotations\Toolkit.DataAnnotations.csproj", "{E0D16C10-682F-4A77-83B2-99DE2E83DEA0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToolKit.DataAnnotation.Test", "ToolKit.DataAnnotation.Test\ToolKit.DataAnnotation.Test.csproj", "{8A7213BB-E22B-4F72-B8F5-066C9831C44B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{E0D16C10-682F-4A77-83B2-99DE2E83DEA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E0D16C10-682F-4A77-83B2-99DE2E83DEA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E0D16C10-682F-4A77-83B2-99DE2E83DEA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A7213BB-E22B-4F72-B8F5-066C9831C44B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A7213BB-E22B-4F72-B8F5-066C9831C44B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A7213BB-E22B-4F72-B8F5-066C9831C44B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A7213BB-E22B-4F72-B8F5-066C9831C44B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
