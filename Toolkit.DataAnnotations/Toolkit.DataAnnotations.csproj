@@ -70,6 +70,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Attributes\ContainsNumericsAttribute.cs" />
+    <Compile Include="Attributes\IsUpperCaseAttribute.cs" />
+    <Compile Include="Attributes\IsLowerCaseAttribute.cs" />
+    <Compile Include="Attributes\StartsWithAttribute.cs" />
     <Compile Include="Enumerations\NumericComparision.cs" />
     <Compile Include="Enumerations\ValidationSteps.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

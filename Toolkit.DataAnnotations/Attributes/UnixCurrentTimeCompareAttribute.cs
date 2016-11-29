@@ -77,7 +77,7 @@ namespace Toolkit.DataAnnotations.Attributes
                         return new ValidationResult(FormatErrorMessage(validationContext.DisplayName));
                     break;
                 case NumericComparision.Equal:
-                    if (!unixTime.Equals(unixTime))
+                    if (!unixTime.Equals(unixNow))
                         return new ValidationResult(FormatErrorMessage(validationContext.DisplayName));
                     break;
                 case NumericComparision.NotEqual:

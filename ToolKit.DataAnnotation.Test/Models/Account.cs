@@ -1,14 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using System;
 using Toolkit.DataAnnotations.Attributes;
+using Toolkit.DataAnnotations.Enumerations;
 
 namespace ToolKit.DataAnnotation.Test.Models
 {
     public class Account
     {
-        [ContainsNumerics(new [] {1, 2, 3, 4})]
-        public int[] Roles { get; set; }
-
-        [ContainsNumerics(new [] {1, 2})]
-        public int[] Positions { get; set; }
+        [IsLowerCase]
+        public char Time { get; set; }
+        
     }
 }
