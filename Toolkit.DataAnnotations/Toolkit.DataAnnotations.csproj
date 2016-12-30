@@ -72,16 +72,19 @@
     <Compile Include="Attributes\ContainsNumericsAttribute.cs" />
     <Compile Include="Attributes\IsUpperCaseAttribute.cs" />
     <Compile Include="Attributes\IsLowerCaseAttribute.cs" />
-    <Compile Include="Attributes\StartsWithAttribute.cs" />
+    <Compile Include="Attributes\Text\StartsWithAttribute.cs" />
+    <Compile Include="Attributes\Text\StringContainsPropertyAttribute.cs" />
+    <Compile Include="Attributes\Text\StringEqualsPropertyAttribute.cs" />
+    <Compile Include="Attributes\Text\StartsWithPropertyAttribute.cs" />
     <Compile Include="Enumerations\NumericComparision.cs" />
     <Compile Include="Enumerations\ValidationSteps.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Attributes\UnixCurrentTimeCompareAttribute.cs" />
     <Compile Include="Attributes\UnixTimeCompareAttribute.cs" />
     <Compile Include="Attributes\InEnumerationsArrayAttribute.cs" />
-    <Compile Include="Attributes\InNumericArrayAttribute.cs" />
-    <Compile Include="Attributes\NumericCompareAttribute.cs" />
-    <Compile Include="Attributes\NumericPropertyCompareAttribute.cs" />
+    <Compile Include="Attributes\Numeric\InNumericArrayAttribute.cs" />
+    <Compile Include="Attributes\Numeric\NumericCompareAttribute.cs" />
+    <Compile Include="Attributes\Numeric\NumericPropertyCompareAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

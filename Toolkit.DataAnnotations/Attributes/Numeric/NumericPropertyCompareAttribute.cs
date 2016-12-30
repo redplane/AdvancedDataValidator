@@ -5,7 +5,7 @@ using System.Globalization;
 using System.Linq;
 using Toolkit.DataAnnotations.Enumerations;
 
-namespace Toolkit.DataAnnotations.Attributes
+namespace Toolkit.DataAnnotations.Attributes.Numeric
 {
     public class NumericPropertyCompareAttribute : ValidationAttribute
     {

@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Globalization;
-using System.Linq;
 using System.Web.Mvc;
 
-namespace Toolkit.DataAnnotations.Attributes
+namespace Toolkit.DataAnnotations.Attributes.Text
 {
     /// <summary>
     ///     This attribute is for checking whether a number is in an array of number or not.

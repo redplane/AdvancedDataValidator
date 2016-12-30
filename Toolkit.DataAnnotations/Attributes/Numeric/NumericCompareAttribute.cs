@@ -5,7 +5,7 @@ using System.Globalization;
 using System.Web.Mvc;
 using Toolkit.DataAnnotations.Enumerations;
 
-namespace Toolkit.DataAnnotations.Attributes
+namespace Toolkit.DataAnnotations.Attributes.Numeric
 {
     /// <summary>
     ///     This attribute is used for comparing 2 numeric typed attributes.
