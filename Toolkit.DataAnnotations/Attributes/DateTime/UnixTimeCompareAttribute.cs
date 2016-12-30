@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 using Toolkit.DataAnnotations.Enumerations;
 
-namespace Toolkit.DataAnnotations.Attributes
+namespace Toolkit.DataAnnotations.Attributes.DateTime
 {
     public class UnixTimeCompareAttribute : ValidationAttribute
     {
@@ -17,7 +17,7 @@ namespace Toolkit.DataAnnotations.Attributes
         /// <summary>
         ///     Date which is similar to millisecond.
         /// </summary>
-        private readonly DateTime _date;
+        private readonly System.DateTime _date;
 
         /// <summary>
         ///     Comparision mode.
@@ -43,12 +43,12 @@ namespace Toolkit.DataAnnotations.Attributes
             NumericComparision comparision)
         {
             // Initialize a date from the given information.
-            _date = new DateTime(year, month, day, hour, minute, second, millisecond);
+            _date = new System.DateTime(year, month, day, hour, minute, second, millisecond);
 
             // Calculate the approx millisecond.
             _milliseconds =
                 _date.ToUniversalTime()
-                    .Subtract(new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc))
+                    .Subtract(new System.DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc))
                     .TotalMilliseconds;
 
             _comparision = comparision;
@@ -59,14 +59,14 @@ namespace Toolkit.DataAnnotations.Attributes
         /// </summary>
         /// <param name="date"></param>
         /// <param name="comparision"></param>
-        public UnixTimeCompareAttribute(DateTime date, NumericComparision comparision)
+        public UnixTimeCompareAttribute(System.DateTime date, NumericComparision comparision)
         {
             try
             {
                 _date = date;
                 _milliseconds =
                     _date.ToUniversalTime()
-                        .Subtract(new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc))
+                        .Subtract(new System.DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc))
                         .TotalMilliseconds;
                 _comparision = comparision;
             }
@@ -83,9 +83,9 @@ namespace Toolkit.DataAnnotations.Attributes
         /// <param name="comparision"></param>
         public UnixTimeCompareAttribute(int year, NumericComparision comparision)
         {
-            _date = new DateTime(year, 12, 31, 23, 59, 59, 999);
+            _date = new System.DateTime(year, 12, 31, 23, 59, 59, 999);
             _milliseconds = _date.ToUniversalTime()
-                .Subtract(new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc))
+                .Subtract(new System.DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc))
                 .TotalMilliseconds;
             _comparision = comparision;
         }
@@ -113,12 +113,12 @@ namespace Toolkit.DataAnnotations.Attributes
             double milliseconds;
 
             // Cast value to date time.
-            if (value is DateTime)
+            if (value is System.DateTime)
             {
-                var castedDate = (DateTime) value;
+                var castedDate = (System.DateTime) value;
                 milliseconds =
                     castedDate.ToUniversalTime()
-                        .Subtract(new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc))
+                        .Subtract(new System.DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc))
                         .TotalMilliseconds;
             }
             else

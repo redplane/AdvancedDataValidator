@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 using Toolkit.DataAnnotations.Enumerations;
 
-namespace Toolkit.DataAnnotations.Attributes
+namespace Toolkit.DataAnnotations.Attributes.DateTime
 {
     public class UnixCurrentTimeCompareAttribute : ValidationAttribute
     {
@@ -16,7 +16,7 @@ namespace Toolkit.DataAnnotations.Attributes
         public UnixCurrentTimeCompareAttribute(NumericComparision comparision)
         {
             _comparision = comparision;
-            _originalUnixTime = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+            _originalUnixTime = new System.DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
         }
 
         #endregion
@@ -31,7 +31,7 @@ namespace Toolkit.DataAnnotations.Attributes
         /// <summary>
         ///     Time should be start from 1970.
         /// </summary>
-        private readonly DateTime _originalUnixTime;
+        private readonly System.DateTime _originalUnixTime;
 
         #endregion
 
@@ -53,16 +53,16 @@ namespace Toolkit.DataAnnotations.Attributes
             double unixTime;
 
             // Cast value to date time.
-            if (value is DateTime)
+            if (value is System.DateTime)
             {
-                var comparedTime = (DateTime) value;
+                var comparedTime = (System.DateTime) value;
                 unixTime = UtcToMillisecond(comparedTime);
             }
             else
                 unixTime = Convert.ToDouble(value);
 
             // Find the current unix time.
-            var unixNow = UtcToMillisecond(DateTime.UtcNow);
+            var unixNow = UtcToMillisecond(System.DateTime.UtcNow);
 
             #region Comparision doing
 
@@ -114,7 +114,7 @@ namespace Toolkit.DataAnnotations.Attributes
         /// </summary>
         /// <param name="convertedDateTime"></param>
         /// <returns></returns>
-        private double UtcToMillisecond(DateTime convertedDateTime)
+        private double UtcToMillisecond(System.DateTime convertedDateTime)
         {
             return convertedDateTime.ToUniversalTime()
                 .Subtract(_originalUnixTime)

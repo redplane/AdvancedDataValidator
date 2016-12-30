@@ -97,6 +97,9 @@ namespace Toolkit.DataAnnotations.Attributes.Text
         /// <returns></returns>
         public override string FormatErrorMessage(string name)
         {
+            if (string.IsNullOrEmpty(ErrorMessage))
+                return string.Format(CultureInfo.CurrentCulture, ErrorMessageString, name, _propertyName);
+
             return string.Format(CultureInfo.CurrentCulture, ErrorMessageString, name, _propertyName);
         }
 

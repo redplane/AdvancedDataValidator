@@ -12,7 +12,7 @@ namespace Toolkit.DataAnnotations.Attributes.Text
         /// Property which should be used for comparing with the current property.
         /// </summary>
         private readonly string _propertyName;
-        
+
         #endregion
 
         #region Constructors
@@ -63,7 +63,7 @@ namespace Toolkit.DataAnnotations.Attributes.Text
             var targetValue = targetProperty.GetValue(validationContext.ObjectInstance, null);
 
             // Find the target string.
-            var targetText = (string) targetValue;
+            var targetText = (string)targetValue;
             if (string.IsNullOrEmpty(targetText))
                 return ValidationResult.Success;
 
@@ -94,6 +94,8 @@ namespace Toolkit.DataAnnotations.Attributes.Text
         /// <returns></returns>
         public override string FormatErrorMessage(string name)
         {
+            if (string.IsNullOrEmpty(ErrorMessage))
+                return string.Format(CultureInfo.CurrentCulture, $"{name} doesn't contain {_propertyName}");
             return string.Format(CultureInfo.CurrentCulture, ErrorMessageString, name, _propertyName);
         }
 

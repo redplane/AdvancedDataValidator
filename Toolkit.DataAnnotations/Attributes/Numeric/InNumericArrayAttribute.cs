@@ -10,10 +10,16 @@ namespace Toolkit.DataAnnotations.Attributes.Numeric
     /// </summary>
     public class InNumericArrayAttribute : ValidationAttribute
     {
+        #region Properties
+
         /// <summary>
         ///     Values collection in which data must be equal.
         /// </summary>
         private readonly double[] _milesStone;
+
+        #endregion
+
+        #region Methods
 
         /// <summary>
         ///     Check whether property is valid or not.
@@ -50,6 +56,8 @@ namespace Toolkit.DataAnnotations.Attributes.Numeric
             var milestoneList = string.Join(",", _milesStone);
             return string.Format(CultureInfo.CurrentCulture, ErrorMessageString, name, milestoneList);
         }
+
+        #endregion
 
         #region Constructor
 
