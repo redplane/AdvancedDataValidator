@@ -14,10 +14,16 @@ namespace Toolkit.DataAnnotations.Attributes
     /// </summary>
     public class ContainsNumericsAttribute : ValidationAttribute, IClientValidatable
     {
+        #region Properties
+
         /// <summary>
         ///     Values collection in which data must be equal.
         /// </summary>
         private readonly double[] _numericsList;
+
+        #endregion
+
+        #region Methods
 
         /// <summary>
         ///     Check whether property is valid or not.
@@ -37,11 +43,11 @@ namespace Toolkit.DataAnnotations.Attributes
 
             // Result after validation.
             ValidationResult validationResult = null;
-            
+
             // Whether property is numerics array or not.
             if (IsNumericsContainsNumerics(source, validationContext, ref validationResult) == ValidationSteps.Stop)
                 return validationResult;
-            
+
             // Whether property is a list or not.
             if (IsNumericsListContainsNumerics(source, validationContext, ref validationResult) == ValidationSteps.Stop)
                 return validationResult;
@@ -49,7 +55,7 @@ namespace Toolkit.DataAnnotations.Attributes
             // Whether property is an enumerable or not.
             if (IsNumericsEnumerableContainsNumerics(source, validationContext, ref validationResult) == ValidationSteps.Stop)
                 return validationResult;
-            
+
             throw new Exception($"{validationContext.DisplayName} must be a collection of numeric.");
         }
 
@@ -74,6 +80,8 @@ namespace Toolkit.DataAnnotations.Attributes
         {
             throw new NotImplementedException();
         }
+
+        #endregion
 
         #region Constructor
 
@@ -184,13 +192,13 @@ namespace Toolkit.DataAnnotations.Attributes
             // Collection doesn't contain all element comes from target.
             if (_numericsList.Any(x => !numerics.Contains(x)))
             {
-                validationResult =  new ValidationResult(FormatErrorMessage(validationContext.DisplayName));
+                validationResult = new ValidationResult(FormatErrorMessage(validationContext.DisplayName));
                 return ValidationSteps.Stop;
             }
-            
+
             validationResult = ValidationResult.Success;
             return ValidationSteps.Stop;
-            
+
         }
 
         /// <summary>
@@ -283,7 +291,7 @@ namespace Toolkit.DataAnnotations.Attributes
                 validationResult = new ValidationResult(FormatErrorMessage(validationContext.DisplayName));
                 return ValidationSteps.Stop;
             }
-                
+
             validationResult = ValidationResult.Success;
             return ValidationSteps.Stop;
         }

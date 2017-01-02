@@ -12,7 +12,7 @@ namespace ToolKit.DataAnnotation.Test.Models
         /// Name of account
         /// </summary>
         [Required]
-        [StringEqualsProperty("FirstName", StringComparison.InvariantCultureIgnoreCase)]
+        [StringComparesProperty(nameof(FirstName),StringComparison.InvariantCultureIgnoreCase, -1)]
         public string FullName { get; set; }
 
         [Required]
