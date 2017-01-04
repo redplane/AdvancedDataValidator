@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace Toolkit.DataAnnotations.Attributes.Text
 {
-    public class StartsWithPropertyAttribute : ValidationAttribute, IClientValidatable
+    public class EndsWithPropertyAttribute : ValidationAttribute, IClientValidatable
     {
         #region Constructors
 
@@ -14,7 +14,7 @@ namespace Toolkit.DataAnnotations.Attributes.Text
         ///     Initialize an instance of EpochTimeCompareAttribute with given information.
         /// </summary>
         /// <param name="propertyName"></param>
-        public StartsWithPropertyAttribute(string propertyName)
+        public EndsWithPropertyAttribute(string propertyName)
         {
             // Invalid property name.
             if (string.IsNullOrEmpty(propertyName))
@@ -79,7 +79,7 @@ namespace Toolkit.DataAnnotations.Attributes.Text
 
             #endregion
 
-            #region Comparisions
+            #region EndsWith comparision
 
             // Value is not a string.
             if (!(value is string))
@@ -89,7 +89,7 @@ namespace Toolkit.DataAnnotations.Attributes.Text
             var sourceValue = (string) value;
 
             // Source doesn't start with the target.
-            if (!sourceValue.StartsWith(targetText))
+            if (!sourceValue.EndsWith(targetText))
                 return new ValidationResult(FormatErrorMessage(validationContext.DisplayName));
 
             #endregion
@@ -127,7 +127,7 @@ namespace Toolkit.DataAnnotations.Attributes.Text
 
             var modelClientValidationRule = new ModelClientValidationRule();
             modelClientValidationRule.ErrorMessage = ErrorMessageString;
-            modelClientValidationRule.ValidationType = "startswith";
+            modelClientValidationRule.ValidationType = "endswith";
             modelClientValidationRule.ValidationParameters.Add("property", _propertyName);
             modelClientValidationRule.ValidationParameters.Add("display", _propertyDisplayName);
             yield return modelClientValidationRule;

@@ -70,6 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Attributes\ContainsNumericsAttribute.cs" />
+    <Compile Include="Attributes\Text\EndsWithPropertyAttribute.cs" />
     <Compile Include="Attributes\Text\StringComparesPropertyAttribute.cs" />
     <Compile Include="Attributes\Text\StringContainsPropertyAttribute.cs" />
     <Compile Include="Attributes\Text\StringEqualsPropertyAttribute.cs" />
@@ -86,6 +87,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Scripts\toolkit\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -8,14 +8,19 @@ namespace ToolKit.DataAnnotation.Test.Models
 {
     public class Account
     {
-        /// <summary>
-        /// Name of account
-        /// </summary>
         [Required]
-        [StringComparesProperty(nameof(FirstName),StringComparison.InvariantCultureIgnoreCase, -1)]
+        [StartsWithProperty(nameof(FirstName), ErrorMessage = "FULLNAME_SHOULD_START_WITH")]
+        [EndsWithProperty(nameof(LastName), ErrorMessage = "FULLNAME_SHOULD_END_WITH")]
+        [StringContainsProperty(nameof(MiddleName), ErrorMessage = "FULLNAME_SHOULD_CONTAIN_MIDDLE_NAME")]
         public string FullName { get; set; }
 
         [Required]
         public string FirstName { get; set; }
+
+        [Required]
+        public string MiddleName { get; set; }
+
+        [Required]
+        public string LastName { get; set; }
     }
 }
