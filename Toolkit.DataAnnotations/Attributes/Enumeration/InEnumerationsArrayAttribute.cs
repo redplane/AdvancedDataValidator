@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 using System.Linq;
-using System.Web.Mvc;
 
-namespace Toolkit.DataAnnotations.Attributes
+namespace Toolkit.DataAnnotations.Attributes.Enumeration
 {
     /// <summary>
     ///     This attribute is for checking whether a number is in an array or not.
     /// </summary>
-    public class InEnumerationsArrayAttribute : ValidationAttribute, IClientValidatable
+    public class InEnumerationsArrayAttribute : ValidationAttribute
     {
         #region Properties
 
@@ -74,18 +73,7 @@ namespace Toolkit.DataAnnotations.Attributes
 
             return string.Format(CultureInfo.CurrentCulture, ErrorMessageString, name, milestoneList);
         }
-
-        /// <summary>
-        /// This function is for finding validation rules which should be applied to client-side.
-        /// </summary>
-        /// <param name="metadata"></param>
-        /// <param name="context"></param>
-        /// <returns></returns>
-        public IEnumerable<ModelClientValidationRule> GetClientValidationRules(ModelMetadata metadata, ControllerContext context)
-        {
-            throw new NotImplementedException();
-        }
-
+        
         #endregion
     }
 }

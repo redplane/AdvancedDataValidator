@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Globalization;
-using System.Web.Mvc;
 
 namespace Toolkit.DataAnnotations.Attributes.Text
 {
-    public class StringEqualsPropertyAttribute : ValidationAttribute, IClientValidatable
+    public class StringEqualsPropertyAttribute : ValidationAttribute
     {
         #region Properties
 
@@ -14,12 +12,7 @@ namespace Toolkit.DataAnnotations.Attributes.Text
         /// Property which should be used for comparing with the current property.
         /// </summary>
         private readonly string _propertyName;
-
-        /// <summary>
-        /// Display name of property which is used for comparision.
-        /// </summary>
-        private string _propertyDisplayName;
-
+        
         /// <summary>
         /// Comparision mode of strings.
         /// </summary>
@@ -112,23 +105,7 @@ namespace Toolkit.DataAnnotations.Attributes.Text
                 return string.Format(CultureInfo.CurrentCulture, $"{name} is not equal to {_propertyName}");
             return string.Format(CultureInfo.CurrentCulture, ErrorMessageString, name, _propertyName);
         }
-
-        public IEnumerable<ModelClientValidationRule> GetClientValidationRules(ModelMetadata metadata, ControllerContext context)
-        {
-            if (metadata.ContainerType != null)
-                if (_propertyDisplayName == null)
-                    _propertyDisplayName =
-                        ModelMetadataProviders.Current.GetMetadataForProperty(() => metadata.Model,
-                            metadata.ContainerType, _propertyName).GetDisplayName();
-
-            var modelClientValidationRule = new ModelClientValidationRule();
-            modelClientValidationRule.ErrorMessage = ErrorMessageString;
-            modelClientValidationRule.ValidationType = "contains";
-            modelClientValidationRule.ValidationParameters.Add("property", _propertyName);
-            modelClientValidationRule.ValidationParameters.Add("display", _propertyDisplayName);
-            yield return modelClientValidationRule;
-        }
-
+        
         #endregion
     }
 }

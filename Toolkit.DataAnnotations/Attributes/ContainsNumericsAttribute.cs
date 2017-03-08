@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 using System.Linq;
-using System.Web.Mvc;
 using Toolkit.DataAnnotations.Enumerations;
 
 namespace Toolkit.DataAnnotations.Attributes
@@ -12,7 +11,7 @@ namespace Toolkit.DataAnnotations.Attributes
     /// <summary>
     ///     This attribute is for checking whether a number is in an array of number or not.
     /// </summary>
-    public class ContainsNumericsAttribute : ValidationAttribute, IClientValidatable
+    public class ContainsNumericsAttribute : ValidationAttribute
     {
         #region Properties
 
@@ -69,18 +68,7 @@ namespace Toolkit.DataAnnotations.Attributes
             var milestoneList = string.Join(",", _numericsList);
             return string.Format(CultureInfo.CurrentCulture, ErrorMessageString, name, milestoneList);
         }
-
-        /// <summary>
-        /// Check whether numeric 
-        /// </summary>
-        /// <param name="metadata"></param>
-        /// <param name="context"></param>
-        /// <returns></returns>
-        public IEnumerable<ModelClientValidationRule> GetClientValidationRules(ModelMetadata metadata, ControllerContext context)
-        {
-            throw new NotImplementedException();
-        }
-
+        
         #endregion
 
         #region Constructor

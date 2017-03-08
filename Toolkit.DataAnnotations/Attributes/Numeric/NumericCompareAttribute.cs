@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Globalization;
-using System.Web.Mvc;
 using Toolkit.DataAnnotations.Enumerations;
 
 namespace Toolkit.DataAnnotations.Attributes.Numeric
@@ -10,7 +8,7 @@ namespace Toolkit.DataAnnotations.Attributes.Numeric
     /// <summary>
     ///     This attribute is used for comparing 2 numeric typed attributes.
     /// </summary>
-    public class NumericCompareAttribute : ValidationAttribute, IClientValidatable
+    public class NumericCompareAttribute : ValidationAttribute
     {
         #region Constructor
 
@@ -138,34 +136,7 @@ namespace Toolkit.DataAnnotations.Attributes.Numeric
         {
             return string.Format(CultureInfo.CurrentCulture, ErrorMessageString, name, _milestone);
         }
-
-        /// <summary>
-        /// Find validation rules which should be applied to client-side.
-        /// </summary>
-        /// <param name="metadata"></param>
-        /// <param name="context"></param>
-        /// <returns></returns>
-        public IEnumerable<ModelClientValidationRule> GetClientValidationRules(ModelMetadata metadata, ControllerContext context)
-        {
-            // Find property name.
-            var propertyName = string.IsNullOrWhiteSpace(metadata.DisplayName)
-                ? metadata.PropertyName
-                : metadata.DisplayName;
-
-            var rule = new ModelClientValidationRule
-            { 
-                ErrorMessage = FormatErrorMessage(propertyName),
-                ValidationType = "numeric",
-                ValidationParameters =
-                {
-                    new KeyValuePair<string, object>("milestone", _milestone),
-                    new KeyValuePair<string, object>("mode",  (byte)_comparision)
-                }
-            };
-
-            yield return rule;
-        }
-
+        
         #endregion
     }
 }
