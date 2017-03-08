@@ -2,13 +2,13 @@
 <package >
 	<metadata>
 		<id>ToolKit-DataAnnotations</id>
-		<version>1.0.1</version>
+		<version>1.0.2</version>
 		<authors>Linh Nguyen</authors>
 		<owners>Linh Nguyen</owners>
 		<projectUrl>https://github.com/redplane/ToolKit</projectUrl>
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>
 		<description>A customized data annotations which are used for MVC | Web API models.</description>
-		<releaseNotes>Added StartsWithProperty,EqualsProperty,ContainsProperty</releaseNotes>
+		<releaseNotes>Removed MVC attribute annotation</releaseNotes>
 		<copyright>Copyright 2016</copyright>
 		<tags>Validator Annotation</tags>
 		<dependencies>
