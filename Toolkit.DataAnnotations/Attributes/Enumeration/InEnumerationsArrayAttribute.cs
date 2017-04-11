@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 using System.Linq;
@@ -26,10 +25,9 @@ namespace Toolkit.DataAnnotations.Attributes.Enumeration
         ///     Initialize an instance of IntsMatchAttribute class.
         /// </summary>
         /// <param name="milestones"></param>
-        public InEnumerationsArrayAttribute(IEnumerable<object> milestones)
+        public InEnumerationsArrayAttribute(int[] milestones)
         {
-            milestones = milestones.Where(x => x != null);
-            _milesStone = milestones.Select(x => (int) x).ToArray();
+            _milesStone = milestones;
         }
 
         #endregion
@@ -49,7 +47,7 @@ namespace Toolkit.DataAnnotations.Attributes.Enumeration
                 return ValidationResult.Success;
 
             // Invalid milestone.
-            if ((_milesStone == null) || (_milesStone.Length < 1))
+            if (_milesStone == null || _milesStone.Length < 1)
                 throw new Exception("Invalid milestones.");
 
             // Convert value to int.
@@ -73,7 +71,7 @@ namespace Toolkit.DataAnnotations.Attributes.Enumeration
 
             return string.Format(CultureInfo.CurrentCulture, ErrorMessageString, name, milestoneList);
         }
-        
+
         #endregion
     }
 }

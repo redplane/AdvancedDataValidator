@@ -2,19 +2,16 @@
 <package >
 	<metadata>
 		<id>ToolKit-DataAnnotations</id>
-		<version>1.0.2</version>
+		<version>1.0.4</version>
 		<authors>Linh Nguyen</authors>
 		<owners>Linh Nguyen</owners>
 		<projectUrl>https://github.com/redplane/ToolKit</projectUrl>
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>
 		<description>A customized data annotations which are used for MVC | Web API models.</description>
-		<releaseNotes>Removed MVC attribute annotation</releaseNotes>
+		<releaseNotes>Changed InEnumerationsArray from IEnumerable to int[] </releaseNotes>
 		<copyright>Copyright 2016</copyright>
 		<tags>Validator Annotation</tags>
 		<dependencies>
-			<dependency id="Microsoft.AspNet.Mvc" version="5.2.3" />
-			<dependency id="Microsoft.AspNet.Razor" version="3.2.3" />
-			<dependency id="Microsoft.AspNet.WebPages" version="3.2.3" />
 		</dependencies>
 	</metadata>
 	<files>
